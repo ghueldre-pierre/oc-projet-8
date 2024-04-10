@@ -1,0 +1,113 @@
+@use "../../sass/typography.scss";
+@use "../../sass/colors.scss";
+
+body {
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* ---------- */
+img, svg {
+    display: block;
+    max-width: 100%;
+}
+
+.page-body {
+    font-family: typography.$ff-regular;
+
+    // pour maintenir le footer en bas de page
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    header, footer {
+        // de 11px pour 320px à 24px pour 1240px
+        font-size: clamp(0.688rem, 1.413vw + 0.405rem, 1.5rem);
+    }
+}
+
+.main-container-wrapper {
+    padding-inline: 5.3%; /* 20px pour 375px de largeur */
+}
+
+.main-container {
+    max-width: 1240px;
+    margin-inline: auto;
+}
+
+.page-header {
+    color: black;
+    
+    font-weight: 500;
+    
+    // 20px/320px & 45px/1240px
+    margin-top: clamp(1.25rem, 2.717vw + 0.707rem, 2.813rem);
+
+    .main-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .brand-logo {
+        fill: colors.$accent-main;
+        width: clamp(8.75rem, 7.609vw + 7.228rem, 13.125rem);
+    }
+
+    nav {
+        flex-grow: 1;
+        text-align: end;
+    }
+
+    /* Note : Les Link de react-router sont automatiquement transformés en élément anchor <a> */
+    a {
+        color: inherit;
+        text-decoration-line: none;
+    }
+
+    a + a {
+        // 64px pour 1240 - 26px pour 375
+        margin-left: clamp(1.5rem, 4.348vw + 0.63rem, 4rem);
+    }
+
+    a.active {
+        text-decoration-line: underline;
+    }
+
+    @media (max-width: 400px) {
+        a {
+            text-transform: uppercase;
+        }
+    }
+}
+
+.page-main {
+    // 27 à 50
+    margin-bottom: clamp(1.688rem, 2.5vw + 1.188rem, 3.125rem);
+}
+
+.page-footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+
+    padding-top: 66px;
+    padding-bottom: 30px;
+
+    margin-top: auto;
+
+    .brand-logo {
+        display: inline-block; /* pour centrer grâce à text-align */
+        width: 122px;
+        height: auto;
+        fill: currentColor;
+    }
+
+    .trademark {
+        margin: 0;
+        margin-top: 43px; /* ~ 47 px sur maquette */
+    }
+}

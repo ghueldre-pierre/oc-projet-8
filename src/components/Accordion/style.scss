@@ -1,0 +1,46 @@
+@use "../../../sass/1-vars/colors.scss";
+
+.accordion {
+    & > * {
+        margin: 0;
+    }
+
+    .content {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 1s;
+        background-color: colors.$light-grey;
+    }
+    .content > * {
+        overflow: hidden;
+
+        margin: 0;
+    }
+    .content.expanded {
+        grid-template-rows: 1fr;
+    }
+
+    button {
+        color: white;
+        font-family: inherit;
+        font-size: 24px;
+        font-weight: 700;
+
+        background-color: colors.$accent-main;
+        border: none;
+
+        width: 100%;
+    }
+    .button-content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .arrow {
+        transition: transform 1s;
+        display: inline-block;
+    }
+    .arrow.expanded {
+        transform: rotate(180deg);
+    }
+}

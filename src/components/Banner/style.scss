@@ -1,0 +1,31 @@
+.banner {
+    position: relative;
+    
+    // min: 111px ; max: 223px //
+    height: clamp(6.938rem, 12.948vw + 3.903rem, 13.938rem);
+    
+    border-radius: 1em;
+    overflow: hidden;
+
+    img {
+        position: absolute;
+        z-index: -1;
+
+        height: 100%;
+        width: 100%;
+        
+        object-fit: cover;
+    }
+
+    .overlay {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .children {
+        height: 100%;
+    }
+}

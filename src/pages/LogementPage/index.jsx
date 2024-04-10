@@ -1,7 +1,9 @@
 function LogementPage() {
+    const logement = useLoaderData();
+
     return (
         <>
-            <h1>Page logement</h1>
+            <h1>{logement.title}</h1>
         </>
     );
 }
