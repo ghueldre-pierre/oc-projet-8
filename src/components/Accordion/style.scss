@@ -1,4 +1,4 @@
-@use "../../../sass/1-vars/colors.scss";
+@use "../../sass/colors.scss";
 
 .accordion {
     & > * {
@@ -8,16 +8,20 @@
     .content {
         display: grid;
         grid-template-rows: 0fr;
-        transition: grid-template-rows 1s;
         background-color: colors.$light-grey;
     }
+
     .content > * {
         overflow: hidden;
-
         margin: 0;
+        padding: 0;
     }
+    
     .content.expanded {
-        grid-template-rows: 1fr;
+        animation: expand 1s forwards;
+    }
+    .content.collapsed {
+        animation: collapse 1s forwards;
     }
 
     button {
@@ -42,5 +46,39 @@
     }
     .arrow.expanded {
         transform: rotate(180deg);
+    }
+}
+
+@keyframes expand {
+    0% {
+        grid-template-rows: 0fr;
+        padding: 0;
+        color: currentColor;
+    }
+    
+    25% {
+        padding: 0.7em;
+    }
+
+    100% {
+        grid-template-rows: 1fr;
+        padding: 0.7em;
+    }
+}
+
+@keyframes collapse {
+    0% {
+        grid-template-rows: 1fr;
+        padding: 0.7em;
+    }
+    
+    50% {
+        color: transparent;
+    }
+    
+    100% {
+        grid-template-rows: 0fr;
+        padding: 0;
+        color: transparent;
     }
 }

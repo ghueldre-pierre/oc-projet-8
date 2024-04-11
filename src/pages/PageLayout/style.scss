@@ -45,6 +45,8 @@ img, svg {
     
     // 20px/320px & 45px/1240px
     margin-top: clamp(1.25rem, 2.717vw + 0.707rem, 2.813rem);
+    // min 26 - max 50
+    margin-bottom: clamp(1.625rem, 2.609vw + 1.103rem, 3.125rem);;
 
     .main-container {
         display: flex;

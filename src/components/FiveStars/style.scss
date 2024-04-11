@@ -1,0 +1,24 @@
+@use "../../sass/colors.scss";
+
+.five-stars {
+    display: inline-block;
+    line-height: 0;
+
+    .star {
+        fill: colors.$light-grey;
+        display: inline-block;   
+    }
+
+    .star.full {
+        fill: colors.$accent-main;
+    }
+    
+    svg {
+        width: clamp(1.125rem, 0.652vw + 0.995rem, 1.5rem);
+        height: clamp(1.125rem, 0.652vw + 0.995rem, 1.5rem);
+    }
+
+    .star + .star {
+        margin-left: clamp(0.438rem, 0.87vw + 0.264rem, 0.938rem);
+    }
+}

@@ -29,9 +29,9 @@ function HomePage() {
     <div className="home-page">
         <section className="header">
             <Banner backgroundImageURL="img/home-banner.jpg">
-                <div class="main-title-wrapper">
+                <div className="main-title-wrapper">
                     <div>
-                        <h1 class="main-title">
+                        <h1 className="main-title">
                             <span>Chez vous,&nbsp;</span>
                             <span>partout et ailleurs</span>
                         </h1>

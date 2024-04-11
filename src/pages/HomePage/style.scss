@@ -2,11 +2,6 @@
 @use "../../sass/media.scss";
 
 .home-page {
-    .header {
-        // min 26 - max 50
-        margin-top: clamp(1.625rem, 2.609vw + 1.103rem, 3.125rem);
-    }
-
     /////////////////////
     .main-title-wrapper {
         height: 100%;
@@ -57,50 +52,3 @@
         }
     }
 }
-
-/*
-.home-page {
-    .header {
-        margin-top: 50px;
-    }
-    .logement-list {
-        max-width: 1240px;
-        margin: 43px auto 50px;
-        padding: 56px 50px 43px;
-
-        display: grid;
-        justify-items: center;
-        
-        // min maquette 340px mais j'ai cherché un compromis 300 px me semble OK
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-
-        // grid-template-columns: repeat(3, 1fr);
-        column-gap: 60px;
-        row-gap: 50px;
-
-        background-color: colors.$mid-grey;
-        border-radius: 2em;
-    }
-
-    .logement-list > * {
-        width: 100%;
-        min-height: 340px;
-    }
-
-    @media (max-width: 883px) {
-        .logement-list {
-            // grid-auto-flow: row;
-            // row-gap: 1.23%; // 20px for 375 width
-
-            padding: 0;
-            background-color: inherit;
-        }
-
-        .logement-list > * {
-            // min-height: 76%;
-            min-height: auto;
-            height: 115%;
-        }
-    }
-}
-*/

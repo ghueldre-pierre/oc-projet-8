@@ -31,6 +31,7 @@ const AppRouter = createBrowserRouter(
             const logementData = data.find((logement) => {
               return logement["id"] === params["logementID"];
             });
+            //console.log(logementData);
             if(! logementData) throw new Response("Not Found", { status: 404 });
             
             return logementData;
