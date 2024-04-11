@@ -1,0 +1,16 @@
+.about-page {
+    .about-list {
+        // 19 à 38
+        margin-top: clamp(1.188rem, 2.065vw + 0.774rem, 2.375rem);
+    }
+
+    .accordion {
+        max-width: 1023px;
+        margin-inline: auto;
+    }
+
+    .accordion + .accordion {
+        // 20 à 30
+        margin-top: clamp(1.25rem, 1.087vw + 1.033rem, 1.875rem)
+    }
+}

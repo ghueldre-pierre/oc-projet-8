@@ -139,3 +139,31 @@
         margin-top: 0;
     }
 }
+
+/// gallery
+.gallery {
+    position: relative;
+    button {
+        position: absolute;
+        top: 0;
+
+        display: flex;
+        align-items: center;
+
+        height: 100%;
+        border: none;
+        background-color: transparent;
+        svg {
+            width: clamp(0.75rem, 3.804vw - 0.011rem, 2.938rem);
+            height: 168%;
+        }
+
+        &.next {
+            right: 0;
+        }
+
+        &.next svg {
+            transform: rotateY(180deg);
+        }
+    }
+}
