@@ -1,8 +1,9 @@
 @use "../../sass/colors.scss";
 
 .accordion {
-    & > * {
+    * {
         margin: 0;
+        padding: 0;
     }
 
     .content {
@@ -13,8 +14,6 @@
 
     .content > * {
         overflow: hidden;
-        margin: 0;
-        padding: 0;
     }
     
     .content.expanded {
@@ -27,14 +26,19 @@
     button {
         color: white;
         font-family: inherit;
-        font-size: 24px;
+        // 13 à 24
+        font-size: clamp(0.813rem, 1.196vw + 0.573rem, 1.5rem);
         font-weight: 700;
 
         background-color: colors.$accent-main;
         border: none;
-        border-radius: 0.7em;
+        border-radius: 0.3em;
 
         width: 100%;
+        // 30 à 52 px 
+        padding-block: 0.44em;
+        padding-left: 10px;
+        padding-right: 1em;
     }
     .button-content {
         display: flex;

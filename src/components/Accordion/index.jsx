@@ -1,42 +1,33 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 import "./style.scss";
 
 function Accordion({title, children}) {
-    const contentContainer = useRef(null);
-    const arrow = useRef(null);
+    const [isActivated, setIsActivated] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
-
-    useEffect(() => {
-        if(isExpanded) {
-            contentContainer.current.classList.remove("collapsed");
-            contentContainer.current.classList.add("expanded");
-            arrow.current.classList.add("expanded");
-        } else {
-            // contrôle pour empêcher l'animation de collapse d'être lancée lors du chargement de la page
-            if(contentContainer.current.classList.contains("expanded")) {
-                contentContainer.current.classList.remove("expanded");
-                contentContainer.current.classList.add("collapsed");
-                arrow.current.classList.remove("expanded");
-            }
-        }
-    }, [isExpanded]);
 
     return <div className="accordion">
         <h3>
             <button 
-                onClick={() => setIsExpanded(!isExpanded)}
                 aria-expanded={isExpanded}
+                onClick={() => {
+                    if(! isActivated) setIsActivated(true);
+                    setIsExpanded(!isExpanded)
+                }}
             >
                 <span className="button-content">
                     <span>{title}</span>
                     <span>
-                        <img src="/img/accordion-arrow.svg" alt="" className="arrow" ref={arrow}/>
+                        <img 
+                            src="/img/accordion-arrow.svg" 
+                            alt="" 
+                            className={`arrow ${isExpanded ? "expanded" : ""}`}
+                        />
                     </span>
                 </span>
             </button>
         </h3>
-        <div className="content" ref={contentContainer}>
+        <div className={`content ${isExpanded ? "expanded" : isActivated ? "collapsed" : ""}`}>
             {children}
         </div>
     </div>;
