@@ -1,0 +1,106 @@
+@use "../../sass/colors.scss";
+@use "../../sass/media.scss";
+
+.logement-info {
+    margin-top: clamp(0.938rem, 1.63vw + 0.611rem, 1.875rem);
+        
+    // left
+    .title {
+        font-size: clamp(1.063rem, 2.065vw + 0.649rem, 2.25rem);
+        font-weight: 500;
+
+        margin: 0;
+        color: colors.$accent-main;
+    }
+
+    .location {
+        font-size: clamp(0.875rem, 0.435vw + 0.788rem, 1.125rem);
+        font-weight: 500;
+    }
+
+    .tags {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        align-items: stretch;
+        flex-wrap: wrap;
+        column-gap: 10px;
+        row-gap: 10px;
+    }
+
+    .tag {
+        color: white;
+        // 14 à 10
+        font-size: clamp(0.563rem, 0.543vw + 0.454rem, 0.875rem);
+        font-weight: bold;
+
+        background-color: colors.$accent-main;
+        border-radius: 0.7em;
+
+        width: clamp(5.25rem, 3.37vw + 4.576rem, 7.188rem);
+        padding-block: 0.3em;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    // right
+    .right {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .profil {
+        display: flex;
+        justify-content: end;
+    }
+
+    .names {
+        font-size: clamp(0.688rem, 0.761vw + 0.535rem, 1.125rem);
+        margin: 0;
+        margin-right: 10px;
+        display: grid;
+        place-items: center;
+        justify-items: end;
+        letter-spacing: 0.27px;
+        span {
+            display: block;
+        }
+    }
+
+    .portrait {
+        width: clamp(1.875rem, 3.696vw + 1.136rem, 4rem);
+    }
+    .portrait img {
+        width: clamp(1.875rem, 3.696vw + 1.136rem, 4rem);
+        border-radius: 50%;
+        display: block;
+    }
+    
+    .rating {
+        width: max-content;
+    } 
+}
+
+@media (min-width: media.$screen-width-tablet) {
+    .logement-info {
+        display: flex;
+        justify-content: space-between;
+
+        .profil {
+            margin-top: -0.35em;
+        }
+
+        .right {
+            display: revert;
+        }
+
+        .rating {
+            margin-top: 27px;
+        }
+    }
+}
