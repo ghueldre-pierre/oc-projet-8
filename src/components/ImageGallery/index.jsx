@@ -3,14 +3,15 @@ import "./style.scss";
 
 function ImageGallery({ arrayImageURL }) {
     const [currentImageID, setCurrentImageID] = useState(0);
-    const isSingleImage = (arrayImageURL.length === 1);
+    const hasMultipleImages = arrayImageURL.length > 1;
+    const maxImageID = arrayImageURL.length - 1;
 
     function onPreviousClick() {
-        setCurrentImageID(currentImageID > 0 ? currentImageID - 1 : isSingleImage);
+        setCurrentImageID(currentImageID > 0 ? currentImageID - 1 : maxImageID);
     }
 
     function onNextClick() {
-        setCurrentImageID((currentImageID === isSingleImage)  ? 0 : currentImageID + 1);
+        setCurrentImageID((currentImageID === maxImageID)  ? 0 : currentImageID + 1);
     }
 
     return (
@@ -22,12 +23,12 @@ function ImageGallery({ arrayImageURL }) {
                 la manière dont on les ordonne n'a donc pas vraiment d'importance, c'est pourquoi 
                 je peux me permettre de les organiser un peu comme je veux.
             */}
-            {(isSingleImage) && (
+            {(hasMultipleImages) && (
                 <>
                     <button className="button previous" onClick={onPreviousClick}>
                         <svg><use href="#left-arrow"></use></svg>
                     </button>
-                    <p className="counter">{`${currentImageID + 1}/${isSingleImage + 1}`}</p>
+                    <p className="counter">{`${currentImageID + 1}/${maxImageID + 1}`}</p>
                     <button className="button next" onClick={onNextClick}>
                         <svg><use href="#left-arrow"></use></svg>
                     </button>
