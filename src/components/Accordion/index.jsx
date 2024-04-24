@@ -3,7 +3,9 @@ import { useState } from "react";
 import "./style.scss";
 
 function Accordion({title, children}) {
-    const [isActivated, setIsActivated] = useState(false);
+    // cet état vérifie si l'accordéon a été étendu auparavant
+    // ceci afin de ne pas lancer l'animation de "collapse" au chargement de la page
+    const [hasBeenExpanded, setHasBeenExpanded] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
 
     return <div className="accordion">
@@ -11,7 +13,7 @@ function Accordion({title, children}) {
             <button 
                 aria-expanded={isExpanded}
                 onClick={() => {
-                    if(! isActivated) setIsActivated(true);
+                    if(! hasBeenExpanded) setHasBeenExpanded(true);
                     setIsExpanded(!isExpanded)
                 }}
             >
@@ -27,7 +29,7 @@ function Accordion({title, children}) {
                 </span>
             </button>
         </h3>
-        <div className={`content ${isExpanded ? "expanded" : isActivated ? "collapsed" : ""}`}>
+        <div className={`content ${isExpanded ? "expanded" : hasBeenExpanded ? "collapsed" : ""}`}>
             {children}
         </div>
     </div>;
