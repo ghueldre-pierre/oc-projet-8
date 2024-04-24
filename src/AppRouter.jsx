@@ -3,8 +3,10 @@ import { Route, createBrowserRouter, createRoutesFromElements } from "react-rout
 import { PageLayout } from "./layouts/PageLayout";
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
-import { LogementPage, logementDataLoader } from './pages/LogementPage';
+import { LogementPage } from './pages/LogementPage';
 import { ErrorPage } from './pages/ErrorPage';
+
+import { getLogementById } from "./api/getLogementById";
 
 const AppRouter = createBrowserRouter(
   createRoutesFromElements(
@@ -14,7 +16,7 @@ const AppRouter = createBrowserRouter(
       <Route 
         path="logements/:logementID"
         element={<LogementPage />}
-        loader={logementDataLoader}
+        loader={getLogementById}
         errorElement={<ErrorPage />}
       />
       <Route path="*" element={<ErrorPage />}/>
