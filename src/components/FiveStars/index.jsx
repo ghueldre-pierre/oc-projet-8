@@ -6,10 +6,10 @@ function FiveStars({ rating }) {
 
     useEffect(() => {
         const stars = liveComponent.current.querySelectorAll(".star");
-        for(let i = 1; i !== 6; ++ i) {
-            if(i < rating) stars[i-1].classList.add("full");
+        for(let i = 0; i !== 5; ++ i) {
+            if(i < rating) stars[i].classList.add("full");
         }
-    })
+    }, []);
 
     return (
         <div>
