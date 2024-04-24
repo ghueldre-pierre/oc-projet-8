@@ -1,5 +1,7 @@
 @use "../../sass/colors.scss";
 
+$border-radius: 0.3em;
+
 .accordion {
     * {
         margin: 0;
@@ -32,13 +34,19 @@
 
         background-color: colors.$accent-main;
         border: none;
-        border-radius: 0.3em;
+        border-radius: $border-radius;
+
+        transition: border-bottom-right-radius 1s, border-bottom-left-radius 1s;
 
         width: 100%;
         // 30 à 52 px 
         padding-block: 0.44em;
         padding-left: 10px;
         padding-right: 1em;
+    }
+    button.expanded {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
     }
     .button-content {
         display: flex;

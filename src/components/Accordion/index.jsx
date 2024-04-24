@@ -16,6 +16,7 @@ function Accordion({title, children}) {
                     if(! hasBeenExpanded) setHasBeenExpanded(true);
                     setIsExpanded(!isExpanded)
                 }}
+                className={isExpanded && "expanded"}
             >
                 <span className="button-content">
                     <span>{title}</span>
