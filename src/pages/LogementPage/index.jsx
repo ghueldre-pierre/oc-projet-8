@@ -14,7 +14,7 @@ function LogementPage() {
 
     return (
         <div className="logement-page">
-            <ImageGallery imagePathArray={logement.pictures}/>
+            <ImageGallery arrayImageURL={logement.pictures} />
             <LogementInfo logementData={logement} />
             <div className="details">
                 <Accordion title="Description">

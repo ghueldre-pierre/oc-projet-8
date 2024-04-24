@@ -20,8 +20,9 @@ const AppRouter = createBrowserRouter(
       <Route path="*" element={<ErrorPage />}/>
     </Route>
   )
-)
+);
 
+// une autre syntaxe possible...
 /*
 const AppRouter = createBrowserRouter([
   {

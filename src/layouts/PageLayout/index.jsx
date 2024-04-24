@@ -3,7 +3,6 @@ import { BrandLogo } from "../../components/BrandLogo";
 import "./style.scss";
 
 function PageLayout() {
-    // cr
     return <div className="page-body">
         <header className="page-header | main-container-wrapper">
             <div className="main-container">
