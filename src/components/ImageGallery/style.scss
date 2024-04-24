@@ -19,14 +19,18 @@
         align-items: center;
 
         height: 100%;
+        min-width: 64px; // pour l'accessibilité
         border: none;
         background-color: transparent;
+        cursor: pointer;
         svg {
             width: clamp(0.75rem, 3.804vw - 0.011rem, 2.938rem);
         }
 
         &.next {
             right: 0;
+            // aligne la flèche à droite
+            justify-content: end;
         }
 
         &.next svg {
@@ -35,6 +39,7 @@
     }
 
     .counter {
+        // sur la version mobile le compteur n'est pas affiché
         display: none;
     }
 }
