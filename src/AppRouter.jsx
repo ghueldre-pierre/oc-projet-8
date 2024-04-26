@@ -6,7 +6,7 @@ import { AboutPage } from './pages/AboutPage';
 import { LogementPage } from './pages/LogementPage';
 import { ErrorPage } from './pages/ErrorPage';
 
-import { getLogementById } from "./api/getLogementById";
+import { tryGetLogementDataById } from "./logementApi";
 
 const AppRouter = createBrowserRouter(
   createRoutesFromElements(
@@ -16,7 +16,7 @@ const AppRouter = createBrowserRouter(
       <Route 
         path="logements/:logementID"
         element={<LogementPage />}
-        loader={getLogementById}
+        loader={tryGetLogementDataById}
         errorElement={<ErrorPage />}
       />
       <Route path="*" element={<ErrorPage />}/>

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Banner } from "../../components/Banner";
 import { LogementCard } from "../../components/LogementCard";
 
-import { LOGEMENT_DATA_URL } from "../../AppConfig.js";
+import { tryGetAllLogementData } from "../../logementApi.js";
 
 import "./style.scss";
 
@@ -11,18 +11,13 @@ function HomePage() {
     const [allLogementData, setAllLogementData] = useState([]);
 
     useEffect(() => {
-        getAllLogementData(LOGEMENT_DATA_URL);
-
-        async function getAllLogementData(dataURL) {
-            try {
-                const response = await fetch(dataURL);
-                if(! response.ok) throw Error(`Échec de récupération des données à cette adresse : ${dataURL}`);
-                const data = await response.json();
-                setAllLogementData(data);
-            } catch(error) {
-                console.error(error.message);
-            }
-        }
+        tryGetAllLogementData()
+        .then(data => {
+            setAllLogementData(data);
+        })
+        .catch(error => {
+            console.log(error);
+        })
     }, []);
 
     return (
