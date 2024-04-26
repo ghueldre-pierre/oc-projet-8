@@ -8,6 +8,8 @@ function Accordion({title, children}) {
     const [hasBeenExpanded, setHasBeenExpanded] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
 
+    //console.log(`content ${isExpanded ? "expanded" : hasBeenExpanded && "collapsed"}`);
+
     return <div className="accordion">
         <h3>
             <button 
@@ -16,7 +18,7 @@ function Accordion({title, children}) {
                     if(! hasBeenExpanded) setHasBeenExpanded(true);
                     setIsExpanded(!isExpanded)
                 }}
-                className={isExpanded && "expanded"}
+                className={isExpanded ? "expanded" : ""}
             >
                 <span className="button-content">
                     <span>{title}</span>
