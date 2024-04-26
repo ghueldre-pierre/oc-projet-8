@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { BrandLogo } from "../../components/BrandLogo";
+import { BrandLogo } from "../../../components/BrandLogo";
 import "./style.scss";
 
 function PageLayout() {
