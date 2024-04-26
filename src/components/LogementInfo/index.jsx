@@ -3,7 +3,6 @@ import { FiveStars } from "../FiveStars";
 import "./style.scss";
 
 function LogementInfo({logementData}) {
-    // useMemo ?
     const [firstName, lastName] = logementData.host.name.split(" ");
 
     return (

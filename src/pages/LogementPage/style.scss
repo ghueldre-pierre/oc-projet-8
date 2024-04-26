@@ -1,4 +1,5 @@
 @use "../../sass/media.scss";
+@use "../../sass/colors.scss";
 
 .details {
     margin-top: clamp(0.813rem, 1.196vw + 0.573rem, 1.5rem);
@@ -7,13 +8,23 @@
         width: 100%;
     }
 
+    .description-text {
+        margin: 0;
+    }
+
     .item-list {
         list-style-type: none;
+        margin: 0;
         padding: 0;
     }
 
     .accordion + .accordion {
         margin-top: 20px;
+    }
+
+    .accordion-content {
+        background-color: colors.$light-grey;
+        padding: 1em;
     }
 }
 

@@ -3,6 +3,63 @@
 $border-radius: 0.3em;
 
 .accordion {
+    .header {
+        margin: 0;
+    }
+    // ------- button
+    button {
+        font-family: inherit;
+        font-size: clamp(0.813rem, 1.196vw + 0.573rem, 1.5rem);
+        font-weight: 700;
+        width: 100%;
+
+        background-color: colors.$accent-main;
+        color: white;
+        border-style: none;
+        border-radius: $border-radius;
+
+        transition: border-bottom-right-radius 1s, border-bottom-left-radius 1s;
+
+        padding-block: 0.44em;
+        padding-left: 10px;
+        padding-right: 1em;
+    }
+
+    .button-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .arrow-icon {
+        transition: transform 1s;
+    }
+
+    button[aria-expanded="true"] {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    button[aria-expanded="true"] .arrow-icon {
+        transform: rotate(180deg);
+    }
+
+    // ------- content
+    .content {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 1s;
+    }
+    .client-content {
+        overflow: hidden;
+    }
+    .content.expanded {
+        grid-template-rows: 1fr;
+    }
+}
+
+/*
+.accordion {
     * {
         margin: 0;
         padding: 0;
@@ -18,10 +75,10 @@ $border-radius: 0.3em;
         overflow: hidden;
     }
     
-    .content.expanded {
+    .content[aria-expanded="true"] {
         animation: expand 1s forwards;
     }
-    .content.collapsed {
+    .content[aria-expanded="false"] {
         animation: collapse 1s forwards;
     }
 
@@ -85,8 +142,9 @@ $border-radius: 0.3em;
         padding: 0.7em;
     }
     
-    50% {
+    75% {
         color: transparent;
+        padding: 0;
     }
     
     100% {
@@ -95,3 +153,4 @@ $border-radius: 0.3em;
         color: transparent;
     }
 }
+*/

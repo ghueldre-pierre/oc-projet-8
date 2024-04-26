@@ -15,14 +15,18 @@ function LogementPage() {
             <LogementInfo logementData={logement} />
             <div className="details">
                 <Accordion title="Description">
-                    <p className="description">{logement["description"]}</p>
+                    <div className="accordion-content">
+                        <p className="description-text">{logement["description"]}</p>
+                    </div>
                 </Accordion>
                 <Accordion title="Équipements">
-                    <ul className="item-list">
-                        {logement["equipments"].map((item, index) => {
-                            return <li key={index}>{item}</li>
-                        })}
-                    </ul>
+                    <div className="accordion-content">
+                        <ul className="item-list">
+                            {logement["equipments"].map((item, index) => {
+                                return <li key={index}>{item}</li>
+                            })}
+                        </ul>
+                    </div>
                 </Accordion>
             </div>
         </div>

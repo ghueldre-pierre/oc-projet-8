@@ -3,39 +3,42 @@ import { useState } from "react";
 import "./style.scss";
 
 function Accordion({title, children}) {
-    // cet état vérifie si l'accordéon a été étendu auparavant
-    // ceci afin de ne pas lancer l'animation de "collapse" au chargement de la page
-    const [hasBeenExpanded, setHasBeenExpanded] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
 
-    //console.log(`content ${isExpanded ? "expanded" : hasBeenExpanded && "collapsed"}`);
-
-    return <div className="accordion">
-        <h3>
-            <button 
-                aria-expanded={isExpanded}
-                onClick={() => {
-                    if(! hasBeenExpanded) setHasBeenExpanded(true);
-                    setIsExpanded(!isExpanded)
-                }}
-                className={isExpanded ? "expanded" : ""}
-            >
-                <span className="button-content">
-                    <span>{title}</span>
-                    <span>
-                        <img 
-                            src="/img/accordion-arrow.svg" 
-                            alt="" 
-                            className={`arrow ${isExpanded ? "expanded" : ""}`}
-                        />
+    return (
+        <div className="accordion">
+            <h3 className="header">
+                <button
+                    type="button"
+                    aria-expanded={isExpanded}
+                    aria-controls={title}
+                    id={`${title}-control`}
+                    onClick={() => {
+                        setIsExpanded(!isExpanded)
+                    }}>
+                    <span className="button-content">
+                        <span>{title}</span>
+                        <span>
+                            <img 
+                                src="/img/accordion-arrow.svg" 
+                                alt="" 
+                                className="arrow-icon"
+                            />
+                        </span>
                     </span>
-                </span>
-            </button>
-        </h3>
-        <div className={`content ${isExpanded ? "expanded" : hasBeenExpanded ? "collapsed" : ""}`}>
-            {children}
+                </button>
+            </h3>
+            <div
+                id={title}
+                aria-labelledby={`${title}-control`}
+                role="region"
+                className={`content ${isExpanded ? "expanded" : ""}`}>
+                <div className="client-content">
+                    {children}
+                </div>
+            </div>
         </div>
-    </div>;
+    )
 }
 
 export { Accordion };
